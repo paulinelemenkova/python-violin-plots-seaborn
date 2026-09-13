@@ -1,27 +1,37 @@
 #!/usr/bin/env python
 # coding: utf-8
-%matplotlib inline
+"""Violin Plots with Python and Seaborn
+
+Author:  Polina Lemenkova
+ORCID:   https://orcid.org/0000-0002-5759-1089
+Archive: https://doi.org/10.13140/RG.2.2.21077.06887
+License: MIT
+
+See README.md for details.
+"""
+# %matplotlib inline
 import os
-import pandas as pd
+
 import matplotlib.pylab as pylab
-from matplotlib import pyplot as plt
+import pandas as pd
 import seaborn as sb
+from matplotlib import pyplot as plt
 
 sb.set_style('darkgrid')
 sb.set_context('paper')
 
 params = {'font.family': 'Palatino',
-    'axes.labelsize': 8,
-        'lines.linewidth': .2,
-            'xtick.major.size': 4,
-                'xtick.labelsize': 8,
-                    'figure.titlesize': 8,
-                        'figure.dpi': 300,
-                        }
+          'axes.labelsize': 8,
+          'lines.linewidth': .2,
+          'xtick.major.size': 4,
+          'xtick.labelsize': 8,
+          'figure.titlesize': 8,
+          'figure.dpi': 300,
+          }
 pylab.rcParams.update(params)
 
 # loading data
-os.chdir('/Users/pauline/Documents/Python')
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 dfM = pd.read_csv("Tab-Bathy.csv")
 dfM.head(5)
 
@@ -32,7 +42,7 @@ g.fig.set_size_inches(10, 5)
 
 plt.xticks(rotation=45)
 plt.title('Violin plots for the Mariana Trench bathymetry')
-plt.subplots_adjust(bottom=0.15,top=0.85)
+plt.subplots_adjust(bottom=0.15, top=0.85)
 
 # visualizing
 plt.tight_layout()
